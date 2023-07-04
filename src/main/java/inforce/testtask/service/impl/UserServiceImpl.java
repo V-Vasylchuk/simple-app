@@ -19,12 +19,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User get(Long id) {
-        return userRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("User with id " + id + " not found"));
-    }
-
-    @Override
     public User update(User user) {
         if (userRepository.existsById(user.getId())) {
             return userRepository.save(user);
